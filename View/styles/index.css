@@ -55,9 +55,6 @@ body {
   color: #fff;
   text-decoration: none;
 }
-.btn:hover:enabled {
-  background-color: rgb(26, 123, 219);
-}
 .btn:disabled {
   opacity: 70%;
 }

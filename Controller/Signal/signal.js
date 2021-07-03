@@ -122,7 +122,6 @@ const getSignal = async (symbol) => {
 };
 
 export const handleSignal = () => {
-  console.log("ping");
   const glanceBRL = document.getElementById("glance-brl");
   const glanceUSD = document.getElementById("glance-usd");
   const btn = document.getElementById("signal-btn");
