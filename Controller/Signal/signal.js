@@ -1,4 +1,5 @@
 import { klines } from "../Api/binanceData";
+import countdown from "./utils/countdown";
 import getHL from "./utils/smaHighsLows";
 
 const getChikou = async (
@@ -93,7 +94,7 @@ const getIchimoku = async (
   }
 };
 
-export const getSignal = async (symbol) => {
+const getSignal = async (symbol) => {
   try {
     const data = await klines(symbol);
     const kumo = await getIchimoku(data);
@@ -111,16 +112,61 @@ export const getSignal = async (symbol) => {
       kumo.price < kumo.spanAPast &&
       kumo.chikou === "BEAR";
 
-    console.log({
-      bull: bullish,
-      bear: bearish,
-    });
-
     return {
       bull: bullish,
       bear: bearish,
     };
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const handleSignal = () => {
+  console.log("ping");
+  const glanceBRL = document.getElementById("glance-brl");
+  const glanceUSD = document.getElementById("glance-usd");
+  const btn = document.getElementById("signal-btn");
+  const timerElement = document.getElementById("timer");
+
+  if (glanceBRL) {
+    countdown(60 * 5, timerElement);
+    const signal = getSignal("btcbrl");
+    btn.disabled = true;
+    glanceBRL.innerHTML = `
+        ${signal.bull ? `<span class="success">Bullish Trend</span>` : ""}
+        ${signal.bear ? `<span class="danger">Bearish Trend</span>` : ""}
+        ${
+          !signal.bear && !signal.bull
+            ? `<span class="price">Neutral Trend</span>`
+            : ""
+        }
+      `;
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerText = `Get A Glance`;
+      timerElement.innerText = "";
+    }, 300000);
+  }
+
+  if (glanceUSD) {
+    countdown(60 * 5, timerElement);
+    const signal = getSignal("btcusdt");
+    btn.disabled = true;
+    glanceUSD.innerHTML = `
+        ${signal.bull ? `<span class="success">Bullish Trend</span>` : ""}
+        ${signal.bear ? `<span class="danger">Bearish Trend</span>` : ""}
+        ${
+          !signal.bear && !signal.bull
+            ? `<span class="price">Neutral Trend</span>`
+            : ""
+        }
+      `;
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerText = `Get A Glance`;
+      timerElement.innerText = "";
+    }, 300000);
   }
 };

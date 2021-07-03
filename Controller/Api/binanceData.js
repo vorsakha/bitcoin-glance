@@ -2,43 +2,48 @@ import axios from "axios";
 import querystring from "querystring";
 
 // Websocket
-let binanceBRL = new WebSocket("wss://stream.binance.com:9443/ws/btcbrl@trade");
-let binanceUSD = new WebSocket(
+const binanceBRL = new WebSocket(
+  "wss://stream.binance.com:9443/ws/btcbrl@trade"
+);
+const binanceUSD = new WebSocket(
   "wss://stream.binance.com:9443/ws/btcusdt@trade"
 );
 let lastPriceUsd;
 let lastPriceBrl;
 
-export const getBtc = (element) => {
-  if (element.id === "brl") {
-    binanceBRL.onmessage = (event) => {
+export const getBtc = () => {
+  const usd = document.getElementById("usd");
+  const brl = document.getElementById("brl");
+
+  binanceBRL.onmessage = (event) => {
+    if (brl) {
       const jsonData = JSON.parse(event.data);
       const price = jsonData.p;
 
-      element.innerText = parseFloat(price).toFixed(2);
+      brl.innerText = `R$${parseFloat(price).toFixed(2)}`;
 
-      element.style = lastPriceBrl > price ? "color: red" : "color: green";
+      brl.style = lastPriceBrl > price ? "color: #BC345B" : "color: #37BC34";
 
       lastPriceBrl = price;
-    };
-  }
-  if (element.id === "usd") {
-    binanceUSD.onmessage = (event) => {
+    }
+  };
+  binanceUSD.onmessage = (event) => {
+    if (usd) {
       const jsonData = JSON.parse(event.data);
       const price = jsonData.p;
 
-      element.innerText = parseFloat(price).toFixed(2);
+      usd.innerText = `$${parseFloat(price).toFixed(2)}`;
 
-      element.style = lastPriceUsd > price ? "color: red" : "color: green";
+      usd.style = lastPriceUsd > price ? "color: #BC345B" : "color: #37BC34";
 
       lastPriceUsd = price;
-    };
-  }
+    }
+  };
 };
 
 // Rest
 const apiUrl = "https://testnet.binance.vision/api";
-const defaultInterval = "15m";
+const defaultInterval = "4h";
 const defaultSymbol = "BTCUSDT";
 const defaultLimit = 120 * 2;
 
@@ -62,7 +67,6 @@ export const klines = async (
   interval = defaultInterval
 ) => {
   const upperCaseSym = symbol.toUpperCase();
-  console.log("klines ping");
   const call = await publicCall("/v1/klines", {
     symbol: upperCaseSym,
     limit,

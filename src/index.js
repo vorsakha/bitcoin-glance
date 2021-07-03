@@ -1,37 +1,31 @@
 import { getBtc } from "../Controller/Api/binanceData.js";
-import { getSignal } from "../Controller/Signal/signal.js";
+import { handleSignal } from "../Controller/Signal/signal.js";
+import countdown from "../Controller/Signal/utils/countdown.js";
+let currency = "btcusdt";
 
 // Content
 const usd = document.getElementById("usd");
+const footer = document.getElementById("footer");
 const brl = document.getElementById("brl");
-const btn = document.getElementById("signal-btn");
+const signalBtn = document.getElementById("signal-btn");
+const signalContainer = document.getElementById("signal-container");
+const currencyUsd = document.getElementById("currency-usd");
+const currencyBrl = document.getElementById("currency-brl");
+const price = document.getElementById("current-price");
 
-// Get Binance Data
-getBtc(usd);
-getBtc(brl);
+const year = new Date().getFullYear();
 
-const handleSignal = (fiat) => {
-  if (fiat === "btcusdt") {
-    getSignal(fiat);
-    btn.innerText = "loading...";
-    btn.disabled = true;
+footer.innerText = `©${year} Andrei T. Ferreira. All rights reserved.`;
 
-    setTimeout(() => {
-      btn.innerText = "Update signal";
-      btn.disabled = false;
-    }, 3000);
-  }
+// Get Binance data at render time
+getBtc();
+// Get glance
+handleSignal();
+// Set timer
+const timerElement = document.getElementById("timer");
+countdown(60 * 5, timerElement);
 
-  if (fiat === "btcbrl") {
-    getSignal(fiat);
-    btn.innerText = "loading...";
-    btn.disabled = true;
+// onclick functions
+signalBtn.onclick = () => handleSignal();
 
-    setTimeout(() => {
-      btn.innerText = "Update signal";
-      btn.disabled = false;
-    }, 3000);
-  }
-};
-
-btn.onclick = () => handleSignal("btcusdt");
+// TIMER BUG
