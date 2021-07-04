@@ -14,7 +14,7 @@ footer.innerText = `©${year} Andrei T. Ferreira. All rights reserved.`;
 // Get websocket Binance data
 getBtc();
 // Get glance
-handleSignal();
+handleSignal("4h");
 
 // onclick functions
 signal4h.onclick = () => handleSignal("4h");

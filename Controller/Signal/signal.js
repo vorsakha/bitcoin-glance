@@ -114,6 +114,7 @@ const getSignal = async (symbol, limit, interval) => {
   try {
     // data
     const data = await klines(symbol, limit, interval);
+
     const kumo = await getIchimoku(data);
 
     // Signal parameters
@@ -144,8 +145,10 @@ const getSignal = async (symbol, limit, interval) => {
 export const handleSignal = async (interval) => {
   const glanceBRL = document.getElementById("glance-brl");
   const glanceUSD = document.getElementById("glance-usd");
-  // const btn = document.getElementById("signal-btn");
-  // const timerElement = document.getElementById("timer");
+  const timeFrame = document.getElementById("time-frame");
+  document.getElementById("alert").innerText = "";
+
+  timeFrame.innerText = interval.toUpperCase();
 
   if (glanceBRL) {
     // Set timer
