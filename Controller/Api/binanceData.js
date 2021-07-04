@@ -61,7 +61,17 @@ const publicCall = async (path, data, method = "GET") => {
 
     return result.data;
   } catch (error) {
-    console.log(error);
+    if (error) {
+      const glanceBRL = document.getElementById("glance-brl");
+      const glanceUSD = document.getElementById("glance-usd");
+
+      if (glanceUSD) {
+        glanceUSD.innerHTML = `<span class="danger alert price">Error fetching data, try again later.</span>`;
+      }
+      if (glanceBRL) {
+        glanceBRL.innerHTML = `<span class="danger alert price">Error fetching data, try again later.</span>`;
+      }
+    }
   }
 };
 
