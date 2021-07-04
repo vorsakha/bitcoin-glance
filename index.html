@@ -15,7 +15,10 @@
   </head>
   <body>
     <main class="container">
-      <h1 class="title">Bitcoin Glance</h1>
+      <a href="/Client/index.html" class="title"><h1>Bitcoin Glance</h1></a>
+      <p class="description">
+        Quickly get a glance of the Bitcoin Market state
+      </p>
       <!-- todo: description -->
       <div class="currency-panel">
         <a href="" id="currency-usd" class="btn">USD</a>
@@ -26,10 +29,6 @@
         <h3 class="price" id="usd"><span class="loading">loading...</span></h3>
       </div>
       <div class="signal-panel">
-        <!-- <div class="wrapper timer">
-          <p>Next available Glance:</p>
-          <p id="timer"></p>
-        </div> -->
         <div class="wrapper mt">
           <button class="btn" id="signal-4h">4hr Glance</button>
           <button class="btn ml" id="signal-1d">1D Glance</button>
@@ -37,9 +36,7 @@
         </div>
         <div class="wrapper min-h">
           <h2><span id="time-frame"></span> Glance:</h2>
-          <h3 id="glance-usd">
-            <!-- <span class="loading">loading...</span> -->
-          </h3>
+          <h3 id="glance-usd"></h3>
           <p id="alert" class="danger alert"></p>
         </div>
       </div>
@@ -48,9 +45,12 @@
       <p id="footer"></p>
       <p class="built-by">
         built by
-        <a href=""> Andrei</a>
+        <a href="https://github.com/tsaristbomba/" target="__blank">
+          tsaristbomba</a
+        >
       </p>
     </footer>
     <script type="module" src="/Client/dist/main.js"></script>
+    <script type="module" src="/Client/Controller/footer.js"></script>
   </body>
 </html>

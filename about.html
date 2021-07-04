@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Client/View/styles/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Bitcoin Glance</title>
+  </head>
+  <body class="about">
+    <main class="about-container">
+      <div>
+        <a href="/Client/index.html" class="title"><h1>Bitcoin Glance</h1></a>
+        <!-- todo: description -->
+        <p class="description">
+          Quickly get a glance of the Bitcoin Market state
+        </p>
+      </div>
+      <article class="article-wrapper">
+        <h2>About</h2>
+        <p>
+          Bitcoin Glance calculates Bitcoin market history to get a glance at
+          the current conditions, depending on specific time frames.
+        </p>
+        <h3>Calculations</h3>
+        <p>
+          We use Ichimoku Kinkō Hyō as a base of calculations and with the data
+          coming of Binance Exchange API, we use all the trend catching
+          capabilities of the Ichimoku framework to establish the current trend
+          conditions of the Bitcoin market.
+        </p>
+        <h3>Time Frames</h3>
+        <p>
+          Bitcoin Glance use specific time frames for analyzing data: 4 hours, 1
+          day and 1 week. We understand that with these time intervals you can
+          have a good quick perspective for short, medium and long term market
+          trends.
+        </p>
+        <h3>Legal Disclaimer</h3>
+        <p>
+          This app is for information purposes only. It is not intended to be
+          investment advice. Seek a duly licensed professional for investment
+          advice.
+        </p>
+      </article>
+    </main>
+    <footer class="footer">
+      <p id="footer"></p>
+      <p class="built-by">
+        built by
+        <a href="https://github.com/tsaristbomba/" target="__blank">
+          tsaristbomba</a
+        >
+      </p>
+    </footer>
+    <script type="module" src="/Client/Controller/footer.js"></script>
+  </body>
+</html>

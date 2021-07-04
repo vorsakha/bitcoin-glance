@@ -13,18 +13,32 @@ body {
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  max-width: 100%;
+}
+
+header {
+  height: 100px;
+  padding: 1rem;
+}
+
+.about {
+  height: 100% !important;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: #333;
-  text-align: center;
-  margin: 1rem 0;
-  height: 100px;
+  margin: 0.8rem 0;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
   line-height: 2.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.title h1 {
+  font-size: 2rem;
 }
 
 .container {
@@ -39,6 +53,31 @@ body {
   background-color: transparent;
   height: calc(100vh - 80px);
   padding: 1rem;
+}
+
+.about-container {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  padding: 1.5rem;
+}
+
+.article-wrapper {
+  height: 100%;
+  margin: 1rem 0;
+  align-self: start;
+}
+.article-wrapper p {
+  margin: 1rem 0;
+}
+.article-wrapper h3 {
+  margin-top: 2rem;
 }
 
 .loading {
@@ -158,6 +197,15 @@ body {
   font-weight: normal;
 }
 
+.description {
+  font-size: 14px;
+  color: #999;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     justify-content: start;
@@ -178,5 +226,14 @@ body {
 
   .alert {
     text-align: start;
+  }
+
+  .title h1 {
+    font-size: 1.2rem;
+    line-height: 3rem;
+  }
+
+  .about-container {
+    padding: 1rem;
   }
 }
