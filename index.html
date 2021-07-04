@@ -16,25 +16,40 @@
   <body>
     <main class="container">
       <h1 class="title">Bitcoin Glance</h1>
+      <!-- todo: description -->
       <div class="currency-panel">
         <a href="" id="currency-usd" class="btn">USD</a>
         <a href="./brl.html" id="currency-brl" class="btn">BRL</a>
       </div>
       <div class="wrapper" id="current-price">
-        <h2>Price:</h2>
+        <h2>Price Now:</h2>
         <h3 class="price" id="usd"><span class="loading">loading...</span></h3>
       </div>
       <div class="signal-panel">
-        <p class="timer" id="timer"></p>
-        <button class="btn" id="signal-btn">Get A Glance</button>
+        <!-- <div class="wrapper timer">
+          <p>Next available Glance:</p>
+          <p id="timer"></p>
+        </div> -->
         <div class="wrapper">
-          <h2>Glance:</h2>
-          <h3 id="glance-usd"></h3>
+          <button class="btn" id="signal-4h">4hr Glance</button>
+          <button class="btn ml" id="signal-1d">1D Glance</button>
+          <button class="btn ml" id="signal-1w">1W Glance</button>
+        </div>
+        <div class="wrapper min-h mt">
+          <h2>(timeframe)Glance:</h2>
+          <h3 id="glance-usd">
+            <!-- <span class="loading">loading...</span> -->
+          </h3>
+          <p id="alert" class="danger alert"></p>
         </div>
       </div>
     </main>
     <footer class="footer">
       <p id="footer"></p>
+      <p class="built-by">
+        built by
+        <a href=""> Andrei</a>
+      </p>
     </footer>
     <script type="module" src="/Client/dist/main.js"></script>
   </body>

@@ -12,9 +12,11 @@ let lastPriceUsd;
 let lastPriceBrl;
 
 export const getBtc = () => {
+  // Elements
   const usd = document.getElementById("usd");
   const brl = document.getElementById("brl");
 
+  // websocket call
   binanceBRL.onmessage = (event) => {
     if (brl) {
       const jsonData = JSON.parse(event.data);
@@ -27,6 +29,8 @@ export const getBtc = () => {
       lastPriceBrl = price;
     }
   };
+
+  // websocket call
   binanceUSD.onmessage = (event) => {
     if (usd) {
       const jsonData = JSON.parse(event.data);
@@ -42,7 +46,7 @@ export const getBtc = () => {
 };
 
 // Rest
-const apiUrl = "https://testnet.binance.vision/api";
+const apiUrl = "https://api.binance.com/api";
 const defaultInterval = "4h";
 const defaultSymbol = "BTCUSDT";
 const defaultLimit = 120 * 2;

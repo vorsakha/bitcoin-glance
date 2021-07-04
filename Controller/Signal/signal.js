@@ -1,7 +1,8 @@
 import { klines } from "../Api/binanceData";
-import countdown from "./utils/countdown";
+// import countdown from "./utils/countdown";
 import getHL from "./utils/smaHighsLows";
 
+// Ichimoku calculations start
 const getChikou = async (
   close,
   high,
@@ -11,6 +12,7 @@ const getChikou = async (
   lengthThree
 ) => {
   try {
+    // Get data from api and Ichimoku
     const price = parseFloat(high[31]);
     const chikou = parseFloat(close[1]);
     let tenkan = parseFloat(getHL(high, low, lengthOne + 30, 31));
@@ -24,6 +26,7 @@ const getChikou = async (
 
     let result;
 
+    // Chikou parameters
     if (
       chikou > price &&
       chikou > tenkan &&
@@ -44,6 +47,7 @@ const getChikou = async (
       result = "BAD";
     }
 
+    // return Chikou state
     return result;
   } catch (error) {
     console.log(error);
@@ -57,10 +61,19 @@ const getIchimoku = async (
   lengthThree = 120
 ) => {
   try {
+    // Data from api
     const close = data.close;
     const high = data.high;
     const low = data.low;
 
+    if (close.length < 240) {
+      document.getElementById("alert").innerText =
+        "Low available data, glances might not be as precise.";
+    } else {
+      document.getElementById("alert").innerText = "";
+    }
+
+    // Ichimoku calculations
     const tenkan = getHL(high, low, lengthOne);
     const kijun = getHL(high, low, lengthTwo);
     const spanA =
@@ -79,6 +92,7 @@ const getIchimoku = async (
       lengthThree
     );
 
+    // return ichi calculations
     return {
       price: parseFloat(close[1]),
       tenkan: tenkan,
@@ -93,12 +107,16 @@ const getIchimoku = async (
     console.log(error);
   }
 };
+// Ichimoku calculations end
 
-const getSignal = async (symbol) => {
+// Glance status from ichimoku analysis
+const getSignal = async (symbol, limit, interval) => {
   try {
-    const data = await klines(symbol);
+    // data
+    const data = await klines(symbol, limit, interval);
     const kumo = await getIchimoku(data);
 
+    // Signal parameters
     const bullish =
       kumo.tenkan > kumo.kijun &&
       kumo.spanAFuture > kumo.spanBFuture &&
@@ -112,6 +130,7 @@ const getSignal = async (symbol) => {
       kumo.price < kumo.spanAPast &&
       kumo.chikou === "BEAR";
 
+    // Return parameters results
     return {
       bull: bullish,
       bear: bearish,
@@ -121,16 +140,20 @@ const getSignal = async (symbol) => {
   }
 };
 
-export const handleSignal = () => {
+// Export glance to html
+export const handleSignal = async (interval) => {
   const glanceBRL = document.getElementById("glance-brl");
   const glanceUSD = document.getElementById("glance-usd");
-  const btn = document.getElementById("signal-btn");
-  const timerElement = document.getElementById("timer");
+  // const btn = document.getElementById("signal-btn");
+  // const timerElement = document.getElementById("timer");
 
   if (glanceBRL) {
-    countdown(60 * 5, timerElement);
-    const signal = getSignal("btcbrl");
-    btn.disabled = true;
+    // Set timer
+    glanceBRL.innerHTML = `<span class="loading">loading...</span>`;
+    // Get signal
+    const signal = await getSignal("btcbrl", 120 * 2, interval);
+
+    // Edit HTML
     glanceBRL.innerHTML = `
         ${signal.bull ? `<span class="success">Bullish Trend</span>` : ""}
         ${signal.bear ? `<span class="danger">Bearish Trend</span>` : ""}
@@ -140,18 +163,15 @@ export const handleSignal = () => {
             : ""
         }
       `;
-
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.innerText = `Get A Glance`;
-      timerElement.innerText = "";
-    }, 300000);
   }
 
   if (glanceUSD) {
-    countdown(60 * 5, timerElement);
-    const signal = getSignal("btcusdt");
-    btn.disabled = true;
+    // Set timer
+    glanceUSD.innerHTML = `<span class="loading">loading...</span>`;
+    // Get signal
+    const signal = await getSignal("btcusdt", 120 * 2, interval);
+
+    // Edit HTML
     glanceUSD.innerHTML = `
         ${signal.bull ? `<span class="success">Bullish Trend</span>` : ""}
         ${signal.bear ? `<span class="danger">Bearish Trend</span>` : ""}
@@ -161,11 +181,5 @@ export const handleSignal = () => {
             : ""
         }
       `;
-
-    setTimeout(() => {
-      btn.disabled = false;
-      btn.innerText = `Get A Glance`;
-      timerElement.innerText = "";
-    }, 300000);
   }
 };

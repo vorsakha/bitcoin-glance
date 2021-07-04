@@ -2,8 +2,7 @@ const countdown = (duration, display) => {
   let timer = duration,
     minutes,
     seconds;
-
-  setInterval(function () {
+  const interval = setInterval(() => {
     minutes = parseInt(timer / 60, 10);
     seconds = parseInt(timer % 60, 10);
 
@@ -17,8 +16,8 @@ const countdown = (duration, display) => {
     }
 
     if (timer === 0) {
-      display.innerText = "";
-      return;
+      clearInterval(interval);
+      display.innerText = "Ready";
     }
   }, 1000);
 };
