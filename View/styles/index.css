@@ -199,6 +199,7 @@ header {
 
 .description {
   font-size: 12px;
+  line-height: 1rem;
   color: #999;
   display: flex;
   text-align: center;
@@ -238,5 +239,6 @@ header {
 
   .description {
     font-size: 14px;
+    line-height: 1.5rem;
   }
 }
