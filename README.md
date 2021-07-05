@@ -6,7 +6,7 @@ Bitcoin Glance calculates Bitcoin market history to get a glance at the current 
 
 ### Calculations
 
-We use Ichimoku Kinkō Hyō(20, 60, 120, 30) as a base of calculations and with the data coming of Binance Exchange API, we use all the trend catching capabilities of the Ichimoku framework to establish the current trend conditions of the Bitcoin market.
+We use Ichimoku Kinkō Hyō as base of calculations and with the data coming of Binance Exchange API, we use all the trend catching capabilities of the Ichimoku framework to establish the current trend conditions of the Bitcoin market.
 
 ### Time Frames
 
