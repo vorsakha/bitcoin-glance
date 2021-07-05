@@ -1,6 +1,6 @@
 import { getBtc } from "./Controller/Api/binanceData.js";
 import { handleSignal } from "./Controller/Signal/signal.js";
-import "./View/footer.js";
+import "./View/Components/footer.js";
 import "./View/styles/index.css";
 
 // Content
