@@ -158,8 +158,10 @@ export const handleSignal = async (interval) => {
 
     // Edit HTML
     glanceBRL.innerHTML = `
-        ${signal.bull ? `<span class="success">Bullish Trend</span>` : ""}
-        ${signal.bear ? `<span class="danger">Bearish Trend</span>` : ""}
+        ${
+          signal.bull ? `<span class="success ubuntu">Bullish Trend</span>` : ""
+        }
+        ${signal.bear ? `<span class="danger ubuntu">Bearish Trend</span>` : ""}
         ${
           !signal.bear && !signal.bull
             ? `<span class="price">Neutral Trend</span>`
@@ -176,8 +178,10 @@ export const handleSignal = async (interval) => {
 
     // Edit HTML
     glanceUSD.innerHTML = `
-        ${signal.bull ? `<span class="success">Bullish Trend</span>` : ""}
-        ${signal.bear ? `<span class="danger">Bearish Trend</span>` : ""}
+        ${
+          signal.bull ? `<span class="success ubuntu">Bullish Trend</span>` : ""
+        }
+        ${signal.bear ? `<span class="danger ubuntu">Bearish Trend</span>` : ""}
         ${
           !signal.bear && !signal.bull
             ? `<span class="price">Neutral Trend</span>`

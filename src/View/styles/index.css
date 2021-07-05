@@ -21,6 +21,17 @@ header {
   padding: 1rem;
 }
 
+a {
+  color: #ff9900;
+}
+a:hover {
+  color: #dd8500;
+}
+
+.text-white {
+  color: white !important;
+}
+
 .about {
   height: 100% !important;
 }
@@ -39,6 +50,10 @@ header {
 }
 .title h1 {
   font-size: 2.2rem;
+}
+
+.ubuntu {
+  font-family: "Ubuntu", "Space Mono", sans-serif;
 }
 
 .container {
@@ -90,14 +105,14 @@ header {
 .btn {
   border: none;
   border-radius: 5px;
-  background-color: dodgerblue;
+  background-color: #ff9900;
   cursor: pointer;
   padding: 5px 10px;
   color: #fff;
   text-decoration: none;
 }
-.btn:disabled {
-  opacity: 70%;
+.btn:hover {
+  background-color: #dd8500;
 }
 
 .footer {
@@ -158,11 +173,18 @@ header {
 
 .price {
   padding: 0 1rem;
+  font-size: 1.8rem;
+  font-family: "Ubuntu", "Space Mono", sans-serif;
+}
+
+.glance {
+  font-size: 1.8rem;
+  font-family: "Ubuntu", "Space Mono", sans-serif;
 }
 
 .signal-panel {
   margin: 1rem 0;
-  border-top: 1px solid rgb(192, 192, 192);
+  border-top: 1px solid #ff9900;
   width: 100%;
 }
 
@@ -205,6 +227,7 @@ header {
   text-align: center;
   align-items: center;
   justify-content: center;
+  margin-top: -3px;
 }
 
 .about-header {

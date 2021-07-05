@@ -7,18 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Ubuntu:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
     <title>Bitcoin Glance</title>
   </head>
   <body>
     <main class="container">
-      <a href="./index.html" class="title"><h1>Bitcoin Glance</h1></a>
+      <a href="./index.html" class="title"
+        ><h1 class="ubuntu">Bitcoin Glance</h1></a
+      >
       <p class="description">Quickly glance at the Bitcoin market</p>
       <div class="currency-panel">
-        <a href="" id="currency-usd" class="btn">USD</a>
-        <a href="./brl.html" id="currency-brl" class="btn">BRL</a>
+        <a href="" id="currency-usd" class="btn text-white">USD</a>
+        <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
       </div>
       <div class="wrapper" id="current-price">
         <h2>Price Now:</h2>
@@ -32,7 +34,7 @@
         </div>
         <div class="wrapper min-h">
           <h2><span id="time-frame"></span> Glance:</h2>
-          <h3 id="glance-usd"></h3>
+          <h3 class="glance" id="glance-usd"></h3>
           <p id="alert" class="danger alert"></p>
         </div>
       </div>
