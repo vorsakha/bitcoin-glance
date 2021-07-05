@@ -1,6 +1,6 @@
 import { klines } from "../Api/binanceData";
 // import countdown from "./utils/countdown";
-import getHL from "./utils/smaHighsLows";
+import getHL from "../utils/smaHighsLows";
 
 // Ichimoku calculations start
 const getChikou = async (

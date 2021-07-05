@@ -1,13 +1,13 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
 
-const stylesHandler = isProduction
-  ? MiniCssExtractPlugin.loader
-  : "style-loader";
+// const stylesHandler = isProduction
+//   ? MiniCssExtractPlugin.loader
+//   : "style-loader";
 
 const config = {
   entry: "./src/index.js",
@@ -20,17 +20,17 @@ const config = {
   },
   plugins: [
     new htmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/index.html"),
+      template: path.resolve(__dirname, "src/View/index.html"),
       filename: "index.html",
       inject: "body",
     }),
     new htmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/brl.html"),
+      template: path.resolve(__dirname, "src/View/brl.html"),
       filename: "brl.html",
       inject: "body",
     }),
     new htmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/about.html"),
+      template: path.resolve(__dirname, "src/View/about.html"),
       filename: "about.html",
       inject: "body",
     }),
@@ -41,9 +41,13 @@ const config = {
         test: /\.(js|jsx)$/i,
         loader: "babel-loader",
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: [stylesHandler, "css-loader"],
+      // },
       {
         test: /\.css$/i,
-        use: [stylesHandler, "css-loader"],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
@@ -57,7 +61,7 @@ module.exports = () => {
   if (isProduction) {
     config.mode = "production";
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    // config.plugins.push(new MiniCssExtractPlugin());
 
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {

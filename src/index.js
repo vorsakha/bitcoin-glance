@@ -1,5 +1,7 @@
-import { getBtc } from "../Controller/Api/binanceData.js";
-import { handleSignal } from "../Controller/Signal/signal.js";
+import { getBtc } from "./Controller/Api/binanceData.js";
+import { handleSignal } from "./Controller/Signal/signal.js";
+import "./View/footer.js";
+import "./View/styles/index.css";
 
 // Content
 const signal4h = document.getElementById("signal-4h");
