@@ -1,4 +1,4 @@
-# 🚀 Bitcoin Glance!
+# 🚀 Bitcoin Glance
 
 ## About
 
