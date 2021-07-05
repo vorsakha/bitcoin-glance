@@ -207,6 +207,15 @@ header {
   justify-content: center;
 }
 
+.about-header {
+  margin: 1rem 0 2rem 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
 @media screen and (min-width: 768px) {
   .wrapper {
     justify-content: start;

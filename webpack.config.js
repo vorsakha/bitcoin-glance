@@ -1,13 +1,8 @@
 const path = require("path");
-// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
-
-// const stylesHandler = isProduction
-//   ? MiniCssExtractPlugin.loader
-//   : "style-loader";
 
 const config = {
   entry: "./src/index.js",
@@ -41,10 +36,6 @@ const config = {
         test: /\.(js|jsx)$/i,
         loader: "babel-loader",
       },
-      // {
-      //   test: /\.css$/i,
-      //   use: [stylesHandler, "css-loader"],
-      // },
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
@@ -60,8 +51,6 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
-
-    // config.plugins.push(new MiniCssExtractPlugin());
 
     config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
   } else {
