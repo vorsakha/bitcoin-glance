@@ -18,6 +18,10 @@ This app is for information purposes only. It is not intended to be investment a
 
 ## Install
 
+```
+yarn install
+```
+
 ### Preview
 
 ```
