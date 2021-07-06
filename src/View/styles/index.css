@@ -145,6 +145,7 @@ a:hover {
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  min-height: 30px;
 }
 
 .signal {
