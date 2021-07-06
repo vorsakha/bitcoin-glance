@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Quickly glance at the Bitcoin market.">
     <link
       rel="icon"
       href="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Bitcoin-BTC-icon.png"
@@ -14,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Ubuntu:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="manifest" href="./manifest.json">
     <title>Bitcoin Glance</title>
   </head>
   <body>
@@ -24,7 +26,7 @@
         </a>
       <div class="currency-panel">
         <a href="./index.html" id="currency-usd" class="btn text-white">USD</a>
-        <a href="" id="currency-brl" class="btn text-white">BRL</a>
+        <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
       </div>
       <div class="w-full">
 
@@ -33,7 +35,7 @@
           <h2 class="price" id="brl"><span class="loading">loading...</span></h2>
         </div>
         <div class="signal-panel">
-          <h2 class="mt responsive-text-center">Perspectives</h2>
+          <h2 class="mt responsive-text-center">Market Perspectives</h2>
           <div class="wrapper">
             <button class="btn" id="signal-4h">Short Term</button>
             <button class="btn ml" id="signal-1d">Medium Term</button>

@@ -3,6 +3,20 @@ import "./View/Components/footer.js";
 import { getBtc } from "./Controller/Api/binanceData.js";
 import { handleSignal } from "./Controller/Signal/signal.js";
 
+// Service worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log("SW registered: ", registration);
+      })
+      .catch((registrationError) => {
+        console.log("SW registration failed: ", registrationError);
+      });
+  });
+}
+
 // If not in about page
 const about = document.getElementById("about");
 
