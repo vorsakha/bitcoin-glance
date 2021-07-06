@@ -1,4 +1,5 @@
 import { klines } from "../Api/binanceData";
+import handleTimeFrame from "../utils/handleTimeFrame";
 // import countdown from "./utils/countdown";
 import getHL from "../utils/smaHighsLows";
 
@@ -145,10 +146,11 @@ const getSignal = async (symbol, limit, interval) => {
 export const handleSignal = async (interval) => {
   const glanceBRL = document.getElementById("glance-brl");
   const glanceUSD = document.getElementById("glance-usd");
-  const timeFrame = document.getElementById("time-frame");
   document.getElementById("alert").innerText = "";
 
-  timeFrame.innerText = interval.toUpperCase();
+  // Print time frame by passing the value
+  handleTimeFrame(interval);
+  //
 
   if (glanceBRL) {
     // Set timer

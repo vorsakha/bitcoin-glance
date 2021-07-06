@@ -28,10 +28,6 @@ a:hover {
   color: #dd8500;
 }
 
-.text-white {
-  color: white !important;
-}
-
 .about {
   height: 100% !important;
 }
@@ -39,21 +35,18 @@ a:hover {
 .title {
   font-size: 1.5rem;
   color: #333;
-  margin: 0.8rem 0;
+  margin: 1rem 0;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   line-height: 2.5rem;
   text-decoration: none;
   cursor: pointer;
 }
 .title h1 {
   font-size: 2.2rem;
-}
-
-.ubuntu {
-  font-family: "Ubuntu", "Space Mono", sans-serif;
 }
 
 .container {
@@ -138,14 +131,14 @@ a:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 2rem 0;
+  margin: 0.5rem 0 2rem 0;
 }
 .currency-panel a {
   margin: 0 10px;
 }
 
 .wrapper {
-  margin: 1rem 0;
+  margin: 2rem 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -154,22 +147,8 @@ a:hover {
   width: 100%;
 }
 
-.min-h {
-  min-height: 72px;
-  align-items: flex-start !important;
-}
-
 .signal {
   font-weight: 700;
-}
-
-.success {
-  color: #37bc34;
-  padding: 0 1rem;
-}
-.danger {
-  color: #bc345b;
-  padding: 0 1rem;
 }
 
 .price {
@@ -205,14 +184,6 @@ a:hover {
   margin-left: 5px;
 }
 
-.ml {
-  margin-left: 10px;
-}
-
-.mt {
-  margin-top: 2rem;
-}
-
 .alert {
   font-size: 14px;
   padding: 0 !important;
@@ -228,18 +199,55 @@ a:hover {
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin-top: -3px;
+  margin-top: 7px;
 }
 
 .about-header {
   margin: 1rem 0 2rem 0;
 }
 
+.responsive-text-center {
+  text-align: center;
+}
+
+/* UTILS */
+.responsive-column {
+  flex-direction: column;
+  margin: 0 auto;
+}
 .row {
   display: flex;
   flex-direction: row;
 }
+.min-h {
+  min-height: 96px;
+  justify-content: start;
+}
+.ml {
+  margin-left: 10px;
+}
+.mt {
+  margin-top: 2rem;
+}
+.success {
+  color: #37bc34;
+  padding: 0 1rem;
+}
+.danger {
+  color: #bc345b;
+  padding: 0 1rem;
+}
+.w-full {
+  width: 100%;
+}
+.text-white {
+  color: white !important;
+}
+.ubuntu {
+  font-family: "Ubuntu", "Space Mono", sans-serif;
+}
 
+/* media query */
 @media screen and (min-width: 768px) {
   .wrapper {
     justify-content: start;
@@ -256,6 +264,7 @@ a:hover {
 
   .min-h {
     min-height: 54px;
+    align-items: flex-start;
   }
 
   .alert {
@@ -273,5 +282,13 @@ a:hover {
   .description {
     font-size: 14px;
     line-height: 1.5rem;
+  }
+
+  .responsive-text-center {
+    text-align: start;
+  }
+
+  .responsive-column {
+    flex-direction: row;
   }
 }

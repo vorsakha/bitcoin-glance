@@ -19,41 +19,45 @@
   <body>
     <main class="container">
       <a href="./index.html" class="title"
-        ><h1 class="ubuntu">Bitcoin Glance</h1></a
-      >
-      <p class="description">Quickly glance at the Bitcoin market</p>
+        ><h1 class="ubuntu">Bitcoin Glance</h1>
+        <p class="description">Quickly glance at the Bitcoin market</p>
+      </a>
       <div class="currency-panel">
         <a href="" id="currency-usd" class="btn text-white">USD</a>
         <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
       </div>
-      <div class="wrapper" id="current-price">
-        <h2>Price Now:</h2>
-        <h3 class="price" id="usd"><span class="loading">loading...</span></h3>
-      </div>
-      <div class="signal-panel">
-        <div class="wrapper mt">
-          <button class="btn" id="signal-4h">4hr Glance</button>
-          <button class="btn ml" id="signal-1d">1D Glance</button>
-          <button class="btn ml" id="signal-1w">1W Glance</button>
+      <div class="w-full">
+        <div class="wrapper" id="current-price">
+          <h2>Price Now:</h2>
+          <h3 class="price" id="usd">
+            <span class="loading">loading...</span>
+          </h3>
         </div>
-        <div class="wrapper min-h">
-          <h2><span id="time-frame"></span> Glance:</h2>
-          <h3 class="glance" id="glance-usd"></h3>
-          <p id="alert" class="danger alert"></p>
+        <div class="signal-panel">
+          <h2 class="mt responsive-text-center">Perspectives</h2>
+          <div class="wrapper">
+            <button class="btn" id="signal-4h">Short Term</button>
+            <button class="btn ml" id="signal-1d">Medium Term</button>
+            <button class="btn ml" id="signal-1w">Long Term</button>
+          </div>
+          <div class="wrapper min-h responsive-column">
+            <h3><span id="time-frame"></span> Glance:</h3>
+            <h3 class="glance" id="glance-usd"></h3>
+            <p id="alert" class="danger alert"></p>
+          </div>
         </div>
       </div>
     </main>
     <footer class="footer">
       <div class="row">
-        <p id="footer"></p>
         <a class="ml" href="./about.html">About</a>
       </div>
-      <p class="built-by">
-        built by
+      <div class="built-by">
+        <p id="footer"></p>
         <a href="https://github.com/tsaristbomba/" target="__blank">
           tsaristbomba</a
         >
-      </p>
+      </div>
     </footer>
   </body>
 </html>

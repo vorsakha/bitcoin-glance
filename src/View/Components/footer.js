@@ -1,4 +1,4 @@
-const year = new Date().getFullYear();
 const footer = document.getElementById("footer");
+const year = new Date().getFullYear();
 
-footer.innerHTML = `©${year} Andrei T. Ferreira.`;
+footer.innerText = `©${year}`;
