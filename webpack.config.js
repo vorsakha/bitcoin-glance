@@ -15,16 +15,21 @@ const manifest = {
   description: "Quickly glance at the Bitcoin market.",
   background_color: "#fff",
   theme_color: "#ff9900",
-  crossorigin: "use-credentials", //can be null, use-credentials or anonymous
+  // crossorigin: "use-credentials", //can be null, use-credentials or anonymous
   prefer_related_applications: true,
   icons: [
     {
-      src: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Bitcoin-BTC-icon.png",
-      sizes: [192, 512],
+      src: "./src/Assets/icon_192x192.png",
+      sizes: "192x192",
       purpose: "maskable",
     },
     {
-      src: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/1024/Bitcoin-BTC-icon.png",
+      src: "./src/Assets/icon_512x512.png",
+      sizes: "512x512",
+      purpose: "maskable",
+    },
+    {
+      src: "./src/Assets/icon_144x144.png",
       sizes: "144x144",
       type: "image/png",
       purpose: "any",

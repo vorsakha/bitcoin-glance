@@ -227,6 +227,9 @@ a:hover {
 .ml {
   margin-left: 10px;
 }
+.ml-2 {
+  margin-left: 1rem;
+}
 .mt {
   margin-top: 2rem;
 }
