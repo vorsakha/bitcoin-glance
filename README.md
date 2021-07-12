@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="src/Assets/icon_192x192.png" alt="Bitcoin Glance">
+    <img src="src/Assets/icon_144x144.png" alt="Bitcoin Glance">
 </p>
 <h1 align="center">🚀 Bitcoin Glance</h1>
 
