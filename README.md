@@ -1,7 +1,9 @@
 <p align="center">
-    <img src="src/Assets/icon_144x144.png" alt="Bitcoin Glance">
+    <a align="center" href="https://www.bitcoinglance.cc/" target="__blank">
+        <img src="https://user-images.githubusercontent.com/13293669/125351396-6bb9a600-e336-11eb-8713-17cb823ab9fe.jpg" alt="Bitcoin Glance Logo">
+    </a>
 </p>
-<h1 align="center">📈Bitcoin Glance📉</h1>
+<h1 align="center">📈📉</h1>
 
 ## 🚀About
 
