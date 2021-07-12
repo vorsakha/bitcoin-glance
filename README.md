@@ -1,9 +1,9 @@
 <p align="center">
     <img src="src/Assets/icon_144x144.png" alt="Bitcoin Glance">
 </p>
-<h1 align="center">🚀 Bitcoin Glance</h1>
+<h1 align="center">📈Bitcoin Glance📉</h1>
 
-## 💹About
+## 🚀About
 
 Bitcoin Glance calculates Bitcoin market history to get a glance at the current conditions, depending on specific time frames.
 
@@ -19,7 +19,7 @@ Bitcoin Glance use specific time frames for analyzing data: 4 hours, 1 day and 1
 
 This app is for information purposes only. It is not intended to be investment advice. Seek a duly licensed professional for investment advice.
 
-## 💹Install
+## 🚀Install
 
 ```
 yarn install
