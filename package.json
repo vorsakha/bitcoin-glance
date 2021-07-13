@@ -8,6 +8,15 @@
     "axios": "^0.21.1"
   },
   "homepage": "https://www.bitcoinglance.cc/",
+  "keywords": [
+    "webpack",
+    "html",
+    "css",
+    "bitcoin",
+    "cryptocurrency",
+    "api",
+    "binance"
+  ],
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
