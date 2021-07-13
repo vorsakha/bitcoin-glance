@@ -1,5 +1,5 @@
 import axios from "axios";
-import querystring from "querystring";
+import * as querystring from "querystring";
 
 // Websocket
 const binanceBRL = new WebSocket(
@@ -8,23 +8,26 @@ const binanceBRL = new WebSocket(
 const binanceUSD = new WebSocket(
   "wss://stream.binance.com:9443/ws/btcusdt@trade"
 );
-let lastPriceUsd;
-let lastPriceBrl;
+let lastPriceUsd: number;
+let lastPriceBrl: number;
 
 export const getBtc = () => {
   // Elements
-  const usd = document.getElementById("usd");
-  const brl = document.getElementById("brl");
+  const usd = document.getElementById("usd") as HTMLHtmlElement;
+  const brl = document.getElementById("brl") as HTMLHtmlElement;
 
   // websocket call
   binanceBRL.onmessage = (event) => {
     if (brl) {
       const jsonData = JSON.parse(event.data);
-      const price = jsonData.p;
+      const price: number = parseFloat(jsonData.p);
 
-      brl.innerText = `R$${parseFloat(price).toFixed(2)}`;
+      brl.innerText = `R$${price.toFixed(2)}`;
 
-      brl.style = lastPriceBrl > price ? "color: #BC345B" : "color: #37BC34";
+      brl.setAttribute(
+        "style",
+        `${lastPriceBrl > price ? "color: #BC345B" : "color: #37BC34"}`
+      );
 
       lastPriceBrl = price;
     }
@@ -34,11 +37,14 @@ export const getBtc = () => {
   binanceUSD.onmessage = (event) => {
     if (usd) {
       const jsonData = JSON.parse(event.data);
-      const price = jsonData.p;
+      const price: number = parseFloat(jsonData.p);
 
-      usd.innerText = `$${parseFloat(price).toFixed(2)}`;
+      usd.innerText = `$${price.toFixed(2)}`;
 
-      usd.style = lastPriceUsd > price ? "color: #BC345B" : "color: #37BC34";
+      usd.setAttribute(
+        "style",
+        `${lastPriceUsd > price ? "color: #BC345B" : "color: #37BC34"}`
+      );
 
       lastPriceUsd = price;
     }
@@ -51,13 +57,13 @@ const defaultInterval = "4h";
 const defaultSymbol = "BTCUSDT";
 const defaultLimit = 120 * 2;
 
-const publicCall = async (path, data, method = "GET") => {
+const publicCall = async (
+  path: string,
+  data: { symbol: string; limit: number; interval: string }
+): Promise<number[][]> => {
   try {
     const qs = data ? `?${querystring.stringify(data)}` : "";
-    const result = await axios({
-      method,
-      url: `${apiUrl}${path}${qs}`,
-    });
+    const result = await axios.get(`${apiUrl}${path}${qs}`);
 
     return result.data;
   } catch (error) {
@@ -76,10 +82,15 @@ const publicCall = async (path, data, method = "GET") => {
 };
 
 export const klines = async (
-  symbol = defaultSymbol,
-  limit = defaultLimit,
-  interval = defaultInterval
-) => {
+  symbol: string = defaultSymbol,
+  limit: number = defaultLimit,
+  interval: string = defaultInterval
+): Promise<{
+  open: number[];
+  high: number[];
+  low: number[];
+  close: number[];
+}> => {
   const upperCaseSym = symbol.toUpperCase();
   const call = await publicCall("/v1/klines", {
     symbol: upperCaseSym,
@@ -87,12 +98,12 @@ export const klines = async (
     interval,
   });
 
-  const open = [];
-  const high = [];
-  const low = [];
-  const close = [];
+  const open: number[] = [];
+  const high: number[] = [];
+  const low: number[] = [];
+  const close: number[] = [];
 
-  call.map((data) => {
+  call.map((data: number[]) => {
     open.unshift(data[1]);
     high.unshift(data[2]);
     low.unshift(data[3]);

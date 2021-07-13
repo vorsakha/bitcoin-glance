@@ -5,27 +5,29 @@ import getHL from "../utils/smaHighsLows";
 
 // Ichimoku calculations start
 const getChikou = async (
-  close,
-  high,
-  low,
-  lengthOne,
-  lengthTwo,
-  lengthThree
-) => {
+  close: number[],
+  high: number[],
+  low: number[],
+  lengthOne: number,
+  lengthTwo: number,
+  lengthThree: number
+): Promise<string> => {
   try {
     // Get data from api and Ichimoku
-    const price = parseFloat(high[31]);
-    const chikou = parseFloat(close[1]);
-    let tenkan = parseFloat(getHL(high, low, lengthOne + 30, 31));
-    let kijun = parseFloat(getHL(high, low, lengthTwo + 30, 31));
-    let spanA = parseFloat(
+    const price: number = high[31];
+    const chikou: number = close[1];
+    let tenkan: number = getHL(high, low, lengthOne + 30, 31);
+    let kijun: number = getHL(high, low, lengthTwo + 30, 31);
+    let spanA: number =
       (getHL(high, low, lengthOne + 60, 61) +
         getHL(high, low, lengthTwo + 60, 61)) /
-        2
-    );
-    let spanB = parseFloat(getHL(high, low, lengthThree + 60, 61));
+      2;
+    let spanB: number = getHL(high, low, lengthThree + 60, 61);
 
-    let result;
+    let result: string;
+
+    console.log(typeof price);
+    // console.log(typeof tenkan);
 
     // Chikou parameters
     if (
@@ -56,16 +58,25 @@ const getChikou = async (
 };
 
 const getIchimoku = async (
-  data,
+  data: { close: number[]; high: number[]; low: number[] },
   lengthOne = 20,
   lengthTwo = 60,
   lengthThree = 120
-) => {
+): Promise<{
+  price: number;
+  tenkan: number;
+  kijun: number;
+  spanAPast: number;
+  spanBPast: number;
+  spanAFuture: number;
+  spanBFuture: number;
+  chikou: string;
+}> => {
   try {
     // Data from api
-    const close = data.close;
-    const high = data.high;
-    const low = data.low;
+    const close: number[] = data.close;
+    const high: number[] = data.high;
+    const low: number[] = data.low;
 
     if (close.length < 240) {
       document.getElementById("alert").innerText =
@@ -75,16 +86,16 @@ const getIchimoku = async (
     }
 
     // Ichimoku calculations
-    const tenkan = getHL(high, low, lengthOne);
-    const kijun = getHL(high, low, lengthTwo);
-    const spanA =
+    const tenkan: number = getHL(high, low, lengthOne);
+    const kijun: number = getHL(high, low, lengthTwo);
+    const spanA: number =
       (getHL(high, low, lengthOne + 30, 31) +
         getHL(high, low, lengthTwo + 30, 31)) /
       2;
-    const spanB = getHL(high, low, lengthThree + 30, 31);
-    const spanAFuture = (tenkan + kijun) / 2;
-    const spanBFuture = getHL(high, low, lengthThree);
-    const chikou = await getChikou(
+    const spanB: number = getHL(high, low, lengthThree + 30, 31);
+    const spanAFuture: number = (tenkan + kijun) / 2;
+    const spanBFuture: number = getHL(high, low, lengthThree);
+    const chikou: string = await getChikou(
       close,
       high,
       low,
@@ -95,7 +106,7 @@ const getIchimoku = async (
 
     // return ichi calculations
     return {
-      price: parseFloat(close[1]),
+      price: close[1],
       tenkan: tenkan,
       kijun: kijun,
       spanAPast: spanA,
@@ -111,10 +122,21 @@ const getIchimoku = async (
 // Ichimoku calculations end
 
 // Glance status from ichimoku analysis
-const getSignal = async (symbol, limit, interval) => {
+const getSignal = async (
+  symbol: string,
+  limit: number,
+  interval: string
+): Promise<{
+  bull: boolean;
+  bear: boolean;
+}> => {
   try {
     // data
-    const data = await klines(symbol, limit, interval);
+    const data: {
+      high: number[];
+      low: number[];
+      close: number[];
+    } = await klines(symbol, limit, interval);
 
     const kumo = await getIchimoku(data);
 
@@ -143,7 +165,7 @@ const getSignal = async (symbol, limit, interval) => {
 };
 
 // Export glance to html
-export const handleSignal = async (interval) => {
+export const handleSignal = async (interval: string): Promise<void> => {
   const glanceBRL = document.getElementById("glance-brl");
   const glanceUSD = document.getElementById("glance-usd");
   document.getElementById("alert").innerText = "";

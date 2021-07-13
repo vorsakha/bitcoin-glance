@@ -1,4 +1,4 @@
-const handleTimeFrame = (time) => {
+const handleTimeFrame = (time: string): void => {
   const timeFrame = document.getElementById("time-frame");
 
   switch (time) {

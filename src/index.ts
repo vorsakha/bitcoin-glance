@@ -1,7 +1,7 @@
 import "./View/styles/index.css";
-import "./View/Components/footer.js";
-import { getBtc } from "./Controller/Api/binanceData.js";
-import { handleSignal } from "./Controller/Signal/signal.js";
+import "./View/Components/footer";
+import { getBtc } from "./Controller/Api/binanceData";
+import { handleSignal } from "./Controller/Signal/signal";
 
 // Service worker
 if ("serviceWorker" in navigator) {

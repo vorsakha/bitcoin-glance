@@ -38,7 +38,7 @@ const manifest = {
 };
 
 const config = {
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
   },
@@ -72,9 +72,14 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/i,
-        loader: "babel-loader",
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
+      // {
+      //   test: /\.(js|jsx)$/i,
+      //   loader: "babel-loader",
+      // },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
@@ -85,6 +90,9 @@ const config = {
         type: "asset",
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
   },
 };
 
