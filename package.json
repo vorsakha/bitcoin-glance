@@ -9,12 +9,14 @@
   "homepage": "https://www.bitcoinglance.cc/",
   "keywords": [
     "webpack",
+    "typescript",
     "html",
     "css",
     "bitcoin",
     "cryptocurrency",
     "api",
-    "binance"
+    "binance",
+    "trading"
   ],
   "scripts": {
     "build": "webpack --mode=production --node-env=production",

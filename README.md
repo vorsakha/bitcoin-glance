@@ -5,6 +5,13 @@
 </p>
 <h1 align="center">📈📉</h1>
 
+## 🚀Tech Stack
+
+- Typescript
+- Webpack
+- Binance API
+- CSS
+
 ## 🚀About
 
 Bitcoin Glance calculates Bitcoin market history to get a glance at the current conditions, depending on specific time frames.
