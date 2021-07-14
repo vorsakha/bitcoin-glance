@@ -5,17 +5,17 @@ import getHL from "../utils/smaHighsLows";
 
 // Ichimoku calculations start
 const getChikou = async (
-  close: number[],
-  high: number[],
-  low: number[],
+  close: string[],
+  high: string[],
+  low: string[],
   lengthOne: number,
   lengthTwo: number,
   lengthThree: number
 ): Promise<string> => {
   try {
     // Get data from api and Ichimoku
-    const price: number = high[31];
-    const chikou: number = close[1];
+    const price: number = parseFloat(high[31]);
+    const chikou: number = parseFloat(close[1]);
     let tenkan: number = getHL(high, low, lengthOne + 30, 31);
     let kijun: number = getHL(high, low, lengthTwo + 30, 31);
     let spanA: number =
@@ -25,9 +25,6 @@ const getChikou = async (
     let spanB: number = getHL(high, low, lengthThree + 60, 61);
 
     let result: string;
-
-    console.log(typeof price);
-    // console.log(typeof tenkan);
 
     // Chikou parameters
     if (
@@ -58,7 +55,7 @@ const getChikou = async (
 };
 
 const getIchimoku = async (
-  data: { close: number[]; high: number[]; low: number[] },
+  data: { close: string[]; high: string[]; low: string[] },
   lengthOne = 20,
   lengthTwo = 60,
   lengthThree = 120
@@ -74,9 +71,9 @@ const getIchimoku = async (
 }> => {
   try {
     // Data from api
-    const close: number[] = data.close;
-    const high: number[] = data.high;
-    const low: number[] = data.low;
+    const close: string[] = data.close;
+    const high: string[] = data.high;
+    const low: string[] = data.low;
 
     if (close.length < 240) {
       document.getElementById("alert").innerText =
@@ -106,7 +103,7 @@ const getIchimoku = async (
 
     // return ichi calculations
     return {
-      price: close[1],
+      price: parseFloat(close[1]),
       tenkan: tenkan,
       kijun: kijun,
       spanAPast: spanA,
@@ -133,9 +130,9 @@ const getSignal = async (
   try {
     // data
     const data: {
-      high: number[];
-      low: number[];
-      close: number[];
+      high: string[];
+      low: string[];
+      close: string[];
     } = await klines(symbol, limit, interval);
 
     const kumo = await getIchimoku(data);

@@ -5,5 +5,7 @@ export default (high: any, low: any, periods: number, start = 1): number => {
   const highNumber = Math.max(...sliceHigh);
   const lowNumber = Math.min(...sliceLow);
 
-  return (highNumber + lowNumber) / 2;
+  const result = (highNumber + lowNumber) / 2;
+
+  return result;
 };

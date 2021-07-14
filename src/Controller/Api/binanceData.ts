@@ -60,7 +60,7 @@ const defaultLimit = 120 * 2;
 const publicCall = async (
   path: string,
   data: { symbol: string; limit: number; interval: string }
-): Promise<number[][]> => {
+): Promise<string[][]> => {
   try {
     const qs = data ? `?${querystring.stringify(data)}` : "";
     const result = await axios.get(`${apiUrl}${path}${qs}`);
@@ -86,10 +86,10 @@ export const klines = async (
   limit: number = defaultLimit,
   interval: string = defaultInterval
 ): Promise<{
-  open: number[];
-  high: number[];
-  low: number[];
-  close: number[];
+  open: string[];
+  high: string[];
+  low: string[];
+  close: string[];
 }> => {
   const upperCaseSym = symbol.toUpperCase();
   const call = await publicCall("/v1/klines", {
@@ -98,12 +98,12 @@ export const klines = async (
     interval,
   });
 
-  const open: number[] = [];
-  const high: number[] = [];
-  const low: number[] = [];
-  const close: number[] = [];
+  const open: string[] = [];
+  const high: string[] = [];
+  const low: string[] = [];
+  const close: string[] = [];
 
-  call.map((data: number[]) => {
+  call.map((data: string[]) => {
     open.unshift(data[1]);
     high.unshift(data[2]);
     low.unshift(data[3]);

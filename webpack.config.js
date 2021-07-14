@@ -9,6 +9,7 @@ const isProduction = process.env.NODE_ENV == "production";
 const manifest = {
   filename: "manifest.json",
   start_url: "/",
+  publicPath: "./",
   display: "standalone",
   name: "Bitcoin Glance",
   short_name: "BitGlance",
@@ -19,20 +20,8 @@ const manifest = {
   prefer_related_applications: true,
   icons: [
     {
-      src: "./src/Assets/icon_192x192.png",
-      sizes: "192x192",
-      purpose: "maskable",
-    },
-    {
-      src: "./src/Assets/icon_512x512.png",
-      sizes: "512x512",
-      purpose: "maskable",
-    },
-    {
-      src: "./src/Assets/icon_144x144.png",
-      sizes: "144x144",
-      type: "image/png",
-      purpose: "any",
+      src: path.resolve("src/Assets/icon_512x512.png"),
+      sizes: [96, 128, 192, 256, 384, 512],
     },
   ],
 };
@@ -48,11 +37,6 @@ const config = {
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: "[name].css" }),
-    new WebpackPwaManifest(manifest),
-    new WorkboxPlugin.GenerateSW({
-      clientsClaim: true,
-      skipWaiting: true,
-    }),
     new htmlWebpackPlugin({
       template: path.resolve(__dirname, "src/View/index.html"),
       filename: "index.html",
@@ -68,6 +52,11 @@ const config = {
       filename: "about.html",
       inject: "body",
     }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+    new WebpackPwaManifest(manifest),
   ],
   module: {
     rules: [
@@ -76,10 +65,6 @@ const config = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.(js|jsx)$/i,
-      //   loader: "babel-loader",
-      // },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
