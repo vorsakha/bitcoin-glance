@@ -28,6 +28,7 @@ const manifest = {
 
 const config = {
   entry: "./src/index.ts",
+  mode: "",
   output: {
     path: path.resolve(__dirname, "dist"),
   },
