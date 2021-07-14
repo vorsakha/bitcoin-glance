@@ -35,6 +35,7 @@ const config = {
     open: true,
     host: "localhost",
   },
+
   plugins: [
     new MiniCssExtractPlugin({ filename: "[name].css" }),
     new htmlWebpackPlugin({
