@@ -12,7 +12,7 @@ const manifest = {
   publicPath: "./",
   display: "standalone",
   name: "Bitcoin Glance",
-  short_name: "BitGlance",
+  short_name: "BitcoinGlance",
   description: "Quickly glance at the Bitcoin market.",
   background_color: "#fff",
   theme_color: "#ff9900",
