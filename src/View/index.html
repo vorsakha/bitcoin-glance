@@ -20,13 +20,20 @@
   </head>
   <body>
     <main class="container">
-      <a href="./index.html" class="title"
-        ><h1 class="ubuntu">Bitcoin Glance</h1>
-        <p class="description">Quickly glance at the Bitcoin market</p>
-      </a>
+      <nav>
+        <a href="./index.html" class="title"
+          ><h1 class="ubuntu">Bitcoin Glance</h1>
+          <p class="description">Quickly glance at the Bitcoin market</p>
+        </a>
+      </nav>
       <div class="currency-panel">
         <!--  make active -->
-        <a href="./index.html" id="currency-usd" class="btn text-white">USD</a>
+        <a
+          href="./index.html"
+          id="currency-usd"
+          class="btn text-white active mr"
+          >USD</a
+        >
         <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
       </div>
       <div class="w-full">
@@ -40,8 +47,8 @@
           <h2 class="mt responsive-text-center">Market Perspectives</h2>
           <div class="wrapper">
             <button class="btn" id="signal-4h">Short Term</button>
-            <button class="btn ml" id="signal-1d">Medium Term</button>
-            <button class="btn ml" id="signal-1w">Long Term</button>
+            <button class="btn mt-2" id="signal-1d">Medium Term</button>
+            <button class="btn mt-2" id="signal-1w">Long Term</button>
           </div>
           <div class="wrapper min-h responsive-column">
             <h3><span id="time-frame"></span> Glance:</h3>

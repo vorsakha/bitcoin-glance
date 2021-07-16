@@ -100,7 +100,8 @@ a:hover {
   border-radius: 5px;
   background-color: #ff9900;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 7px 12px;
+  width: 100%;
   color: #fff;
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -114,7 +115,7 @@ a:hover {
   max-width: 800px;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-self: center;
   width: 100%;
@@ -132,9 +133,7 @@ a:hover {
   justify-content: center;
   width: 100%;
   margin: 0.5rem 0 2rem 0;
-}
-.currency-panel a {
-  margin: 0 10px;
+  grid-gap: 0.5rem;
 }
 
 .wrapper {
@@ -224,8 +223,8 @@ a:hover {
   min-height: 96px;
   justify-content: start;
 }
-.ml {
-  margin-left: 10px;
+.mt-2 {
+  margin-top: 0.5rem;
 }
 .ml-2 {
   margin-left: 1rem;
@@ -240,6 +239,9 @@ a:hover {
 .danger {
   color: #bc345b;
   padding: 0 1rem;
+}
+.active {
+  background-color: #e68b02 !important;
 }
 .w-full {
   width: 100%;
@@ -294,5 +296,13 @@ a:hover {
 
   .responsive-column {
     flex-direction: row;
+  }
+
+  .ml {
+    margin-left: 10px;
+  }
+
+  .currency-panel a {
+    margin: 0 10px;
   }
 }
