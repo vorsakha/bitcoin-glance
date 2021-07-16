@@ -1,5 +1,6 @@
 import axios from "axios";
 import * as querystring from "querystring";
+import formatCurrency from "../utils/formatCurrency";
 
 // Websocket
 const binanceBRL = new WebSocket(
@@ -22,7 +23,7 @@ export const getBtc = () => {
       const jsonData = JSON.parse(event.data);
       const price: number = parseFloat(jsonData.p);
 
-      brl.innerText = `R$${price.toFixed(2)}`;
+      brl.innerText = formatCurrency("brl", parseFloat(price.toFixed(2)));
 
       brl.setAttribute(
         "style",
@@ -39,7 +40,7 @@ export const getBtc = () => {
       const jsonData = JSON.parse(event.data);
       const price: number = parseFloat(jsonData.p);
 
-      usd.innerText = `$${price.toFixed(2)}`;
+      usd.innerText = formatCurrency("usd", parseFloat(price.toFixed(2)));
 
       usd.setAttribute(
         "style",
