@@ -165,6 +165,12 @@ const getSignal = async (
 export const handleSignal = async (interval: string): Promise<void> => {
   const glanceBRL = document.getElementById("glance-brl");
   const glanceUSD = document.getElementById("glance-usd");
+  const signalElement = document.getElementById(`signal-${interval}`);
+  document.getElementById(`signal-4h`).classList.remove("active");
+  document.getElementById(`signal-1d`).classList.remove("active");
+  document.getElementById(`signal-1w`).classList.remove("active");
+
+  signalElement.classList.add("active");
   document.getElementById("alert").innerText = "";
 
   // Print time frame by passing the value
@@ -180,9 +186,15 @@ export const handleSignal = async (interval: string): Promise<void> => {
     // Edit HTML
     glanceBRL.innerHTML = `
         ${
-          signal.bull ? `<span class="success ubuntu">Bullish Trend</span>` : ""
+          signal.bull
+            ? `<span class="success ubuntu text-xl">Bullish Trend</span>`
+            : ""
         }
-        ${signal.bear ? `<span class="danger ubuntu">Bearish Trend</span>` : ""}
+        ${
+          signal.bear
+            ? `<span class="danger ubuntu text-xl">Bearish Trend</span>`
+            : ""
+        }
         ${
           !signal.bear && !signal.bull
             ? `<span class="price">Neutral Trend</span>`
@@ -200,9 +212,15 @@ export const handleSignal = async (interval: string): Promise<void> => {
     // Edit HTML
     glanceUSD.innerHTML = `
         ${
-          signal.bull ? `<span class="success ubuntu">Bullish Trend</span>` : ""
+          signal.bull
+            ? `<span class="success ubuntu text-xl">Bullish Trend</span>`
+            : ""
         }
-        ${signal.bear ? `<span class="danger ubuntu">Bearish Trend</span>` : ""}
+        ${
+          signal.bear
+            ? `<span class="danger ubuntu text-xl">Bearish Trend</span>`
+            : ""
+        }
         ${
           !signal.bear && !signal.bull
             ? `<span class="price">Neutral Trend</span>`

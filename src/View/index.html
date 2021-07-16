@@ -19,41 +19,43 @@
     <title>Bitcoin Glance</title>
   </head>
   <body>
-    <main class="container">
-      <nav>
+    <main>
+      <header>
         <a href="./index.html" class="title"
           ><h1 class="ubuntu">Bitcoin Glance</h1>
           <p class="description">Quickly glance at the Bitcoin market</p>
         </a>
-      </nav>
-      <div class="currency-panel">
-        <!--  make active -->
-        <a
-          href="./index.html"
-          id="currency-usd"
-          class="btn text-white active mr"
-          >USD</a
-        >
-        <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
-      </div>
-      <div class="w-full">
-        <div class="wrapper" id="current-price">
-          <h2>Price Now:</h2>
-          <h3 class="price" id="usd">
-            <span class="loading">loading...</span>
-          </h3>
+      </header>
+      <div class="content">
+        <div class="currency-panel">
+          <!--  make active -->
+          <a
+            href="./index.html"
+            id="currency-usd"
+            class="btn text-white active mr"
+            >USD</a
+          >
+          <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
         </div>
-        <div class="signal-panel">
-          <h2 class="mt responsive-text-center">Market Perspectives</h2>
-          <div class="wrapper">
-            <button class="btn" id="signal-4h">Short Term</button>
-            <button class="btn mt-2" id="signal-1d">Medium Term</button>
-            <button class="btn mt-2" id="signal-1w">Long Term</button>
+        <div class="w-full">
+          <div class="wrapper" id="current-price">
+            <h2>Price Now:</h2>
+            <h3 class="price" id="usd">
+              <span class="loading">loading...</span>
+            </h3>
           </div>
-          <div class="wrapper min-h responsive-column">
-            <h3><span id="time-frame"></span> Glance:</h3>
-            <h3 class="glance" id="glance-usd"></h3>
-            <p id="alert" class="danger alert"></p>
+          <div class="signal-panel">
+            <h2 class="mt responsive-text-center">Market Perspectives</h2>
+            <div class="wrapper">
+              <button class="btn" id="signal-4h">Short Term</button>
+              <button class="btn mt-2" id="signal-1d">Medium Term</button>
+              <button class="btn mt-2" id="signal-1w">Long Term</button>
+            </div>
+            <div class="wrapper min-h responsive-column">
+              <h3><span id="time-frame"></span> Glance:</h3>
+              <p class="glance" id="glance-usd"></p>
+              <p id="alert" class="danger alert"></p>
+            </div>
           </div>
         </div>
       </div>

@@ -12,13 +12,16 @@ body {
   justify-content: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 100%;
 }
 
 header {
-  height: 100px;
+  height: 160px;
   padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
@@ -33,7 +36,7 @@ a:hover {
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #333;
   margin: 1rem 0;
   display: flex;
@@ -46,11 +49,13 @@ a:hover {
   cursor: pointer;
 }
 .title h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 
-.container {
+.content {
+  /* min-height: calc(100vh - 140px); */
   max-width: 800px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +64,6 @@ a:hover {
   width: 100%;
   overflow: auto;
   background-color: transparent;
-  height: calc(100vh - 80px);
   padding: 1rem;
 }
 
@@ -132,7 +136,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 0.5rem 0 2rem 0;
+  margin: 0.5rem 0 0.5rem 0;
   grid-gap: 0.5rem;
 }
 
@@ -220,8 +224,9 @@ a:hover {
   flex-direction: row;
 }
 .min-h {
-  min-height: 96px;
+  min-height: 150px;
   justify-content: start;
+  grid-gap: 1rem;
 }
 .mt-2 {
   margin-top: 0.5rem;
@@ -243,6 +248,9 @@ a:hover {
 .active {
   background-color: #e68b02 !important;
 }
+.inactive {
+  background-color: #ff9900 !important;
+}
 .w-full {
   width: 100%;
 }
@@ -252,20 +260,32 @@ a:hover {
 .ubuntu {
   font-family: "Ubuntu", "Space Mono", sans-serif;
 }
+.text-xl {
+  font-size: 2.5rem;
+}
 
 /* media query */
 @media screen and (min-width: 768px) {
   .wrapper {
     justify-content: start;
+    grid-gap: 1rem;
+  }
+
+  .currency-panel {
+    grid-gap: 1rem;
+  }
+
+  .btn {
+    width: auto;
+  }
+
+  .mt-2 {
+    margin: 0;
   }
 
   .footer {
     height: 50px;
     flex-direction: row;
-  }
-
-  .container {
-    height: calc(100vh - 50px);
   }
 
   .min-h {
@@ -278,7 +298,7 @@ a:hover {
   }
 
   .title h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .about-container {
@@ -302,7 +322,7 @@ a:hover {
     margin-left: 10px;
   }
 
-  .currency-panel a {
+  /* .currency-panel a {
     margin: 0 10px;
-  }
+  } */
 }

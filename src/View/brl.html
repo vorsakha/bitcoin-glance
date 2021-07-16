@@ -19,46 +19,50 @@
     <title>Bitcoin Glance</title>
   </head>
   <body>
-    <main class="container">
-      <a href="./index.html" class="title"
-        ><h1 class="ubuntu">Bitcoin Glance</h1>
-        <p class="description">Quickly glance at the Bitcoin market</p>
-        </a>
-      <div class="currency-panel">
-        <a href="./index.html" id="currency-usd" class="btn text-white">USD</a>
-        <!--  make active -->
-        <a href="./brl.html" id="currency-brl" class="btn text-white">BRL</a>
-      </div>
-      <div class="w-full">
-
-        <div class="wrapper" id="current-price">
-          <h2>Price Now:</h2>
-          <h2 class="price" id="brl"><span class="loading">loading...</span></h2>
+    <main >
+      <header>
+        <a href="./index.html" class="title"
+          ><h1 class="ubuntu">Bitcoin Glance</h1>
+          <p class="description">Quickly glance at the Bitcoin market</p>
+          </a>
+      </header>
+      <div class="content">
+        <div class="currency-panel">
+          <a href="./index.html" id="currency-usd" class="btn text-white">USD</a>
+          <!--  make active -->
+          <a href="./brl.html" id="currency-brl" class="btn text-white active">BRL</a>
         </div>
-        <div class="signal-panel">
-          <h2 class="mt responsive-text-center">Market Perspectives</h2>
-          <div class="wrapper">
-            <button class="btn" id="signal-4h">Short Term</button>
-            <button class="btn ml" id="signal-1d">Medium Term</button>
-            <button class="btn ml" id="signal-1w">Long Term</button>
-          </div>
-          <div class="wrapper min-h responsive-column">
-            <h3><span id="time-frame"></span> Glance:</h3>
-            <h3 class="glance" id="glance-brl"></h3>
-            <p id="alert" class="danger alert"></p>
-          </div>
-        </div>
-      </main>
-      <footer class="footer">
-        <div class="row">
-          <a href="./about.html">About</a>
-        </div>
-        <div class="built-by">
-          <p id="footer"></p>
+        <div class="w-full">
   
-          <a href="https://github.com/tsaristbomba/" target="__blank">
-            tsaristbomba</a
-          >
+          <div class="wrapper" id="current-price">
+            <h2>Price Now:</h2>
+            <h2 class="price" id="brl"><span class="loading">loading...</span></h2>
+          </div>
+          <div class="signal-panel">
+            <h2 class="mt responsive-text-center">Market Perspectives</h2>
+            <div class="wrapper">
+              <button class="btn" id="signal-4h">Short Term</button>
+              <button class="btn mt-2" id="signal-1d">Medium Term</button>
+              <button class="btn mt-2" id="signal-1w">Long Term</button>
+            </div>
+            <div class="wrapper min-h responsive-column">
+              <h3><span id="time-frame"></span> Glance:</h3>
+              <p class="glance" id="glance-brl"></p>
+              <p id="alert" class="danger alert"></p>
+            </div>
+          </div>
+        </main>
+        <footer class="footer">
+          <div class="row">
+            <a href="./about.html">About</a>
+          </div>
+          <div class="built-by">
+            <p id="footer"></p>
+    
+            <a href="https://github.com/tsaristbomba/" target="__blank">
+              tsaristbomba</a
+            >
+          </div>
         </div>
       </div>
     </footer>
