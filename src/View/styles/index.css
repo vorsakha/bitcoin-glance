@@ -28,7 +28,7 @@ a {
   color: #ff9900;
 }
 a:hover {
-  color: #dd8500;
+  color: #ca7900;
 }
 
 .about {
@@ -111,7 +111,7 @@ a:hover {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .btn:hover {
-  background-color: #dd8500;
+  background-color: #ca7900;
 }
 
 .footer {
@@ -246,7 +246,7 @@ a:hover {
   padding: 0 1rem;
 }
 .active {
-  background-color: #e68b02 !important;
+  background-color: #ca7900 !important;
 }
 .inactive {
   background-color: #ff9900 !important;
