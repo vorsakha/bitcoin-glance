@@ -187,12 +187,12 @@ export const handleSignal = async (interval: string): Promise<void> => {
     glanceBRL.innerHTML = `
         ${
           signal.bull
-            ? `<span class="success ubuntu text-xl">Bullish Trend</span>`
+            ? `<span class="success ubuntu text-xl">📈Bullish Trend</span>`
             : ""
         }
         ${
           signal.bear
-            ? `<span class="danger ubuntu text-xl">Bearish Trend</span>`
+            ? `<span class="danger ubuntu text-xl">📉Bearish Trend</span>`
             : ""
         }
         ${
@@ -213,12 +213,12 @@ export const handleSignal = async (interval: string): Promise<void> => {
     glanceUSD.innerHTML = `
         ${
           signal.bull
-            ? `<span class="success ubuntu text-xl">Bullish Trend</span>`
+            ? `<span class="success ubuntu text-xl">📈Bullish Trend</span>`
             : ""
         }
         ${
           signal.bear
-            ? `<span class="danger ubuntu text-xl">Bearish Trend</span>`
+            ? `<span class="danger ubuntu text-xl">📉Bearish Trend</span>`
             : ""
         }
         ${
