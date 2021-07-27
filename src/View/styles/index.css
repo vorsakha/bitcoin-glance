@@ -224,7 +224,7 @@ a:hover {
   flex-direction: row;
 }
 .min-h {
-  min-height: 150px;
+  min-height: 110px;
   justify-content: start;
   grid-gap: 1rem;
 }
