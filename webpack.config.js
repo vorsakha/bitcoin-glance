@@ -16,7 +16,6 @@ const manifest = {
   description: "Quickly glance at the Bitcoin market.",
   background_color: "#fff",
   theme_color: "#ff9900",
-  // crossorigin: "use-credentials", //can be null, use-credentials or anonymous
   prefer_related_applications: true,
   icons: [
     {

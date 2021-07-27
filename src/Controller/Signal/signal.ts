@@ -1,6 +1,4 @@
 import { klines } from "../Api/binanceData";
-import handleTimeFrame from "../utils/handleTimeFrame";
-// import countdown from "./utils/countdown";
 import getHL from "../utils/smaHighsLows";
 
 // Ichimoku calculations start
@@ -172,10 +170,6 @@ export const handleSignal = async (interval: string): Promise<void> => {
 
   signalElement.classList.add("active");
   document.getElementById("alert").innerText = "";
-
-  // Print time frame by passing the value
-  handleTimeFrame(interval);
-  //
 
   if (glanceBRL) {
     // Set timer
